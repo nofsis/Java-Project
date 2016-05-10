@@ -22,15 +22,20 @@ public class SourceAlarm {
 		ecouteursGaz.add(gl);
 		
 	}
-	public void addAlarmRadiationListener(AlarmGazListener gl){
-		ecouteursGaz.add(gl);
+	public void addAlarmRadiationListener(AlarmRadiationListener rl){
+		ecouteursRadiation.add(rl);
 		
 	}
 	
-	public void removeAlarmRadiationListener(AlarmRadiationListener rl){
+	public void removeAlarmGazListener(AlarmGazListener rl){
+		ecouteursGaz.remove(rl);
+		
+	}
+	public void removeAlarmFeuListener(AlarmFeuListener rl){
 		ecouteursFeu.remove(rl);
 		
 	}
+	
 
 	
 	public void generateAlarmFeuEvent (int nv){

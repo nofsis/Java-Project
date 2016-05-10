@@ -5,7 +5,7 @@ public class AlarmRadiationEvent extends AlarmEvent {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1862632244189649111L;
+    private static final long serialVersionUID = 1L;
 
 	public AlarmRadiationEvent(Object source, String localisation,
 			int niveauImportance,int niveauRadiation) {

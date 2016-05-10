@@ -3,16 +3,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+
 import org.jdesktop.layout.GroupLayout;
 import org.jdesktop.layout.LayoutStyle;
 /*
  * Created by JFormDesigner on Tue May 10 17:26:34 CEST 2016
  */
 
+
+
+
 import project.MoniteurA;
 import project.MoniteurB;
 import project.SourceAlarm;
 import project.TypeAlarmGaz;
+
 
 
 
@@ -43,32 +48,40 @@ public class AlarmGenerator extends JFrame {
 		comboBox3 = new JComboBox();
 		button1 = new JButton();
 		comboBox4 = new JComboBox();
-		comboBox4.setVisible(false);
 		
-		comboBox1.addItem("c139");
-		comboBox1.addItem("c127");
-		comboBox1.addItem("c130");
+		comboBox1.addItem("");
+		comboBox1.addItem("c109");
+		comboBox1.addItem("c110");
 		comboBox1.addItem("c119");
 		
+		comboBox2.addItem("");
 		comboBox2.addItem("Feu");
 		comboBox2.addItem("Gaz");
 		comboBox2.addItem("Radiation");
 		
-		comboBox2.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-
-		
+		comboBox3.addItem("");
 		comboBox3.addItem("1");
 		comboBox3.addItem("2");
 		comboBox3.addItem("3");
 		
-		
-		
+		comboBox4.setVisible(false);
+		comboBox2.addActionListener(new ActionListener() {
+		    
+		    public void actionPerformed(ActionEvent e) {
+			
+			rellenar((String) comboBox2.getSelectedItem());
+			
+		    }
+		});
+		button1.addActionListener(new ActionListener() {
+		    
+		    public void actionPerformed(ActionEvent e) {
+			generateEvent();
+			
+			
+		    }
+		});
+
 		//======== this ========
 		Container contentPane = getContentPane();
 
@@ -90,55 +103,53 @@ public class AlarmGenerator extends JFrame {
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
-			contentPaneLayout.createParallelGroup()
-				.add(contentPaneLayout.createSequentialGroup()
-					.add(contentPaneLayout.createParallelGroup()
-						.add(contentPaneLayout.createSequentialGroup()
-							.add(208, 208, 208)
-							.add(label1, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))
-						.add(contentPaneLayout.createSequentialGroup()
-							.add(38, 38, 38)
-							.add(contentPaneLayout.createParallelGroup()
-								.add(label3, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-								.add(label2, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-								.add(label4, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE))
-							.add(43, 43, 43)
-							.add(contentPaneLayout.createParallelGroup(GroupLayout.TRAILING, false)
-								.add(GroupLayout.LEADING, comboBox2, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-								.add(GroupLayout.LEADING, comboBox1, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-								.add(comboBox3, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
-							.add(27, 27, 27)
-							.add(comboBox4, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(76, Short.MAX_VALUE))
-				.add(GroupLayout.TRAILING, contentPaneLayout.createSequentialGroup()
-					.add(0, 206, Short.MAX_VALUE)
+		    contentPaneLayout.createParallelGroup()
+			.add(contentPaneLayout.createSequentialGroup()
+			    .add(38, 38, 38)
+			    .add(contentPaneLayout.createParallelGroup()
+				.add(label2, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+				.add(label4, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+				.add(label3, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE))
+			    .add(43, 43, 43)
+			    .add(contentPaneLayout.createParallelGroup()
+				.add(label1)
+				.add(contentPaneLayout.createParallelGroup(GroupLayout.TRAILING)
+				    .add(contentPaneLayout.createSequentialGroup()
 					.add(button1, GroupLayout.PREFERRED_SIZE, 127, GroupLayout.PREFERRED_SIZE)
-					.add(186, 186, 186))
+					.addContainerGap(206, Short.MAX_VALUE))
+				    .add(contentPaneLayout.createSequentialGroup()
+					.add(contentPaneLayout.createParallelGroup(GroupLayout.TRAILING, false)
+					    .add(GroupLayout.LEADING, comboBox1, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+					    .add(GroupLayout.LEADING, comboBox2, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+					    .add(GroupLayout.LEADING, comboBox3, GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
+					.add(27, 27, 27)
+					.add(comboBox4, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+					.add(253, 253, 253)))))
 		);
 		contentPaneLayout.setVerticalGroup(
-			contentPaneLayout.createParallelGroup()
+		    contentPaneLayout.createParallelGroup()
+			.add(contentPaneLayout.createSequentialGroup()
+			    .add(28, 28, 28)
+			    .add(label1)
+			    .add(47, 47, 47)
+			    .add(contentPaneLayout.createParallelGroup()
 				.add(contentPaneLayout.createSequentialGroup()
-					.add(28, 28, 28)
-					.add(label1)
-					.add(47, 47, 47)
-					.add(contentPaneLayout.createParallelGroup()
-						.add(contentPaneLayout.createSequentialGroup()
-							.add(label2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.RELATED)
-							.add(label3)
-							.add(18, 18, 18)
-							.add(label4))
-						.add(contentPaneLayout.createSequentialGroup()
-							.add(comboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.UNRELATED)
-							.add(contentPaneLayout.createParallelGroup(GroupLayout.BASELINE)
-								.add(comboBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.add(comboBox4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(LayoutStyle.UNRELATED)
-							.add(comboBox3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.add(13, 13, 13)
-					.add(button1)
-					.addContainerGap(142, Short.MAX_VALUE))
+				    .add(label2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+				    .addPreferredGap(LayoutStyle.RELATED)
+				    .add(contentPaneLayout.createParallelGroup(GroupLayout.BASELINE)
+					.add(label3, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+					.add(comboBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				    .addPreferredGap(LayoutStyle.UNRELATED)
+				    .add(contentPaneLayout.createParallelGroup(GroupLayout.BASELINE)
+					.add(label4)
+					.add(comboBox3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+				.add(contentPaneLayout.createSequentialGroup()
+				    .add(comboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				    .addPreferredGap(LayoutStyle.UNRELATED)
+				    .add(comboBox4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+			    .addPreferredGap(LayoutStyle.RELATED, 17, Short.MAX_VALUE)
+			    .add(button1)
+			    .add(34, 34, 34))
 		);
 		pack();
 		setLocationRelativeTo(getOwner());
@@ -165,9 +176,88 @@ public class AlarmGenerator extends JFrame {
 
 	    
 	}
+	public void rellenar (String seleccionEnCombo2){
+	    // Se borran los valores previos
+	    comboBox4.removeAllItems();
+	    
+
+	    // Se rellena según la opción en combo1
+	    if (seleccionEnCombo2.equals("Gaz")) {
+	       comboBox4.addItem("--type--");
+	       comboBox4.addItem("Hydrogene");
+	       comboBox4.addItem("Helium");
+	       comboBox4.addItem("CO2");
+	       comboBox4.setVisible(true);
+	    } 
+	    if (seleccionEnCombo2.equals("Radiation")) {
+		comboBox4.addItem("--niveau--");
+	       for(Integer i= 1;i<101;i++){
+		   comboBox4.addItem(i.toString());
+		   
+	       }
+	       comboBox4.setVisible(true);
+	 }
+	    if  (seleccionEnCombo2.equals("Feu"))
+		comboBox4.setVisible(false);
+	    }
+	
+	public void generateEvent(){
+	    String localisation;
+	    String typeAlarme=null;
+	    String typeAlarmes=null;
+	    String niveau;
+	    
+	    localisation=comboBox1.getSelectedItem().toString();
+	    typeAlarme=comboBox2.getSelectedItem().toString();
+	    niveau=comboBox3.getSelectedItem().toString();
+	    int nv = Integer.parseInt(niveau);
+	    
+	    
+	    if(localisation==""){
+		throw new IllegalArgumentException("Il faut mettre une localisation!");
+		
+	    }
+	    if(typeAlarme==""){
+		throw new IllegalArgumentException("Il faut mettre une type d'alarme!");
+		
+	    }
+	    if(typeAlarmes=="--type--"){
+		throw new IllegalArgumentException("Il faut mettre le type d'alarme de gaz!");
+		
+	    }
+	    if(typeAlarmes=="--niveau--"){
+		throw new IllegalArgumentException("Il faut mettre le niveau de radiation!");
+		
+	    }
+	SourceAlarm sa= new SourceAlarm(localisation);
+	MoniteurA monA= new MoniteurA();
+	MoniteurB monB= new MoniteurB();
+	sa.addAlarmFeuListener(monA);
+	sa.addAlarmGazListener(monA);
+	sa.addAlarmGazListener(monB);
+	sa.addAlarmRadiationListener(monB);
+	
+	if(typeAlarme=="Gaz"){
+	    typeAlarmes=comboBox4.getSelectedItem().toString().toUpperCase();
+	    sa.generateAlarmGazEvent(nv,TypeAlarmGaz.valueOf(typeAlarmes));
+	}
+	if(typeAlarme=="Feu"){
+	    sa.generateAlarmFeuEvent(nv);
+	}
+	if(typeAlarme=="Radiation"){
+	    typeAlarmes=comboBox4.getSelectedItem().toString();
+	    int nvr = Integer.parseInt(typeAlarmes);
+	    sa.generateAlarmRadiationEvent(nv,nvr);
+
+	}
+	}
+	
+	    
+	
+	}
 
 
 
 
 
-}
+
