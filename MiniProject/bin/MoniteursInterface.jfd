@@ -1,0 +1,55 @@
+JFDML JFormDesigner: "5.2.3.0.281" Java: "1.8.0_91" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {par l {seq {space :p:253:p, comp label1:::p:87:p}, seq l {space :p:203:p, par l:::p {comp label3:::::x, comp scrollPane1:::::x}, space :::p, comp button1:::p::p}}, space ::195:x, comp separator1:::p:29:p, par l {seq t {space ::184:x, par t:::p {comp scrollPane2::::195:x, comp label4::::195:x}, space :::p, comp button2:::p::p, space :p:163:p}, seq {space :p:325:p, comp label2:::p:86:p, space ::209:x}}}}"
+			"$verticalGroup": "par l {comp separator1::t::486:x, seq {space :::p, par l {comp label1:::p::p, comp label2:::p::p}, par l {seq {space :p:49:p, comp label3:::p::p, par l {seq {space s:::p, comp scrollPane1:::p::p}, seq l {space :p:54:p, comp button1:::p::p}}}, seq l {space :p:48:p, comp label4:::p::p, par l {seq {space u:::p, comp scrollPane2:::p::p}, seq l {space :p:47:p, comp button2:::p::p}}}}, space :::x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JSeparator" ) {
+				name: "separator1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Moniteur A"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Moniteur B"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Événements reçus et non traités"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list1"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Événements reçus et non traités"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list2"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Détails"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Détails"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 1325, 525 )
+		} )
+	}
+}
