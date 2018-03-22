@@ -52,7 +52,7 @@ public class AlarmGenerator extends JFrame {
 		
 		comboBox1.addItem("");
 
-		comboBox1.addItem("c120");
+		comboBox1.addItem("c333");
 		comboBox1.addItem("c110");
 		comboBox1.addItem("c119");
 		
